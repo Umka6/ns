@@ -1,0 +1,31 @@
+<div class="shop-pagination">
+							<div class="row">
+								<div class="col-md-6 col-xs-6">
+									<div class="product-count">
+										показано 13 товаров
+									</div>
+									<ul class="pagination">
+                                        {% if page_obj.has_previous %}
+										<li class="pagination-previous-bottom">
+
+											<a href="{{ request.path }}?page={{ page_obj.previous_page_number }}{% for key,value in request.GET.items %}{% ifnotequal key 'page' %}&{{ key }}={{ value }}{% endifnotequal %}{% endfor %}">
+												<i class="fa fa-angle-left"></i>
+											</a>
+										</li>
+`                                       {% else %}
+										<li class="active current">
+											<a href="shop.html">
+												1
+											</a>
+										</li>
+                                        {% if page.has_next %}
+										<li class="pagination-next-bottom">
+											<a href="?page={{ page.next_page_number }}">
+												<i class="fa fa-angle-right"></i>
+											</a>
+										</li>
+                                        {% endif %}
+									</ul>
+								</div>
+                            </div>
+</div>
